@@ -14,6 +14,9 @@ import {
 } from 'react-native';
 
 import Icon from 'react-native-vector-icons/Ionicons';
+import List from './src/list/list';
+import Edit from './src/edit/edit';
+import { Account } from './src/account/account';
 
 /* 去除remote debugger时候出现的waring */
 console.ignoredYellowBox = ['Remote debugger'];
@@ -66,7 +69,7 @@ export default class native443 extends Component {
           selected={ this.state.selectedTab === 'video' }
           onPress={ () => { this.setState({ selectedTab: 'video' }); } }
         >
-          <View style={ styles.container }><Text>视频</Text></View>
+          <List/>
         </Icon.TabBarItem>
         <Icon.TabBarItem
           title="录制"
@@ -74,7 +77,7 @@ export default class native443 extends Component {
           selected={ this.state.selectedTab === 'recording' }
           onPress={ () => { this.setState({ selectedTab: 'recording' }); } }
         >
-          <View style={ styles.container }><Text>录制</Text></View>
+          <Edit/>
         </Icon.TabBarItem>
         <Icon.TabBarItem
           title="我的"
@@ -82,7 +85,7 @@ export default class native443 extends Component {
           selected={ this.state.selectedTab === 'more' }
           onPress={ () => { this.setState({ selectedTab: 'more' }); } }
         >
-          <View style={ styles.container }><Text>我的</Text></View>
+          <Account/>
         </Icon.TabBarItem>
       </TabBarIOS>
     );
