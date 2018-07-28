@@ -9,7 +9,8 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  View
+  View,
+  TabBarIOS
 } from 'react-native';
 
 export default class native443 extends Component {
@@ -50,20 +51,19 @@ export default class native443 extends Component {
   }
 
   render() {
+    console.log('render');
     return (
-      <View style={ styles.container }>
-        <Text style={ styles.welcome } onPress={ this.timePlus.bind(this) }>
-          Welcome to React Native!
-          点击了{ this.state.times }次
-        </Text>
-        <Text style={ styles.instructions }>
-          To get started, edit index.ios.js
-        </Text>
-        <Text style={ styles.instructions }>
-          Press Cmd+R to reload,{ '\n' }
-          Cmd+D or shake for dev menu
-        </Text>
-      </View>
+      <TabBarIOS tintColor={'#ee735c'}>
+        <TabBarIOS.Item title={ '你好' } systemIcon={ 'contacts' } badge={ 123 }>
+
+        </TabBarIOS.Item>
+        <TabBarIOS.Item title={ '我的' } systemIcon={ 'contacts' } badge={ 33 }>
+
+        </TabBarIOS.Item>
+        <TabBarIOS.Item title={ '大侠' } systemIcon={ 'downloads' } >
+
+        </TabBarIOS.Item>
+      </TabBarIOS>
     );
   }
 }
