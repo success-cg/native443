@@ -12,5 +12,6 @@ module.exports = {
     'no-unused-vars': 'off',
     'no-unreachable': 'off',
     'no-redeclare': 'warn',
+    'no-trailing-spaces': ['error', { 'skipBlankLines': true }]
   }
 };
