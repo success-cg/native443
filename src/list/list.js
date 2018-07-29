@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { http } from '../common/tools.js';
+import Config from '../common/config.js';
 
 // 获取视频的宽度
 const { width } = Dimensions.get('window');
@@ -67,8 +68,9 @@ export default class List extends Component {
   }
 
   _fetchData() {
-    const url = 'http://rap2api.taobao.org/app/mock/24515/api/creation/videoList';
-    http.get(url, { a: 1, b: 2 }).then(({ data: { code, message, data } }) => {
+    // 从config中取视频列表的api
+    const { api: { creation } } = Config;
+    http.get(`base:${creation}`, { accessToken: '123' }).then(({ data: { code, message, data } }) => {
       this.setState({
         dataSource: this.state.dataSource.cloneWithRows(data)
       });
