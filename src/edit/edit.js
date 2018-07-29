@@ -5,7 +5,7 @@ import {
   StyleSheet
 } from 'react-native';
 
-export default class Edit extends Component {
+export class Edit extends Component {
   render() {
     return (
       <View style={ styles.container }>

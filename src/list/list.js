@@ -5,12 +5,14 @@ import {
   StyleSheet
 } from 'react-native';
 
-export default function() {
-  return (
-    <View style={ styles.container }>
-      <Text style={ styles.welcome }>视频列表页面</Text>
-    </View>
-  );
+export default class List extends Component {
+  render() {
+    return (
+      <View style={ styles.container }>
+        <Text style={ styles.welcome }>视频列表页面</Text>
+      </View>
+    );
+  }
 }
 
 const styles = StyleSheet.create({

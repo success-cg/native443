@@ -14,9 +14,10 @@ import {
 } from 'react-native';
 
 import Icon from 'react-native-vector-icons/Ionicons';
-import List from './src/list/list';
-import Edit from './src/edit/edit';
-import { Account } from './src/account/account';
+import List from './src/list/list.js';
+import { Edit } from './src/edit/edit.js';
+import { Account as MyAccount } from './src/account/account.js';
+import { more } from './src/_assets/icon/icon.js';
 
 /* 去除remote debugger时候出现的waring */
 console.ignoredYellowBox = ['Remote debugger'];
@@ -25,17 +26,9 @@ export default class native443 extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      times: 0,
-      selectedTab: 'video'
+      selectedTab: 'video',
+      more
     };
-  }
-
-  timePlus() {
-    let { times } = this.state;
-    times++;
-    this.setState({
-      times: times
-    });
   }
 
   componentWillMount() {
@@ -63,6 +56,7 @@ export default class native443 extends Component {
     console.log('render');
     return (
       <TabBarIOS tintColor={ '#ee735c' } unselectedItemTintColor={ '#bbb596' }>
+        { /* Icon.TabBarItem是react-native-vector-icons/Ionicons模块对TabBarIOS.Item的封装 */ }
         <Icon.TabBarItem
           title="视频"
           iconName="ios-videocam"
@@ -73,20 +67,20 @@ export default class native443 extends Component {
         </Icon.TabBarItem>
         <Icon.TabBarItem
           title="录制"
-          iconName="ios-recording"
+          iconName='ios-recording'
           selected={ this.state.selectedTab === 'recording' }
           onPress={ () => { this.setState({ selectedTab: 'recording' }); } }
         >
           <Edit/>
         </Icon.TabBarItem>
-        <Icon.TabBarItem
+        <TabBarIOS.Item
           title="我的"
-          iconName="ios-more"
+          icon={ { uri: this.state.more, scale: 7 } }
           selected={ this.state.selectedTab === 'more' }
           onPress={ () => { this.setState({ selectedTab: 'more' }); } }
         >
-          <Account/>
-        </Icon.TabBarItem>
+          <MyAccount/>
+        </TabBarIOS.Item>
       </TabBarIOS>
     );
   }
